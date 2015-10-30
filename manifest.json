@@ -1,3 +1,15 @@
 {
-  
+  "manifest_version": 1,
+
+  "name": "",
+  "description": "",
+  "version": "0.0",
+
+  "browser_action": {
+    "default_icon": "",
+    "default_popup": ""
+  },
+  "permissions": [
+
+  ]
 }
