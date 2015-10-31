@@ -2,25 +2,39 @@ $(function (){
 
   // Load world.png
   collie.ImageManager.add({
-    "planet" : "images/world.png"
+    "planet" : "images/world.png",
+    "stars" : "images/stars-900x640.png" //temporary background
   });
 
   //Create a world layer
   var worldLayer = new collie.Layer({
-    width: 500,
-    height: 500
+    width: window.innerWidth,
+    height: window.innerHeight
   });
 
-  //Create object to display
+  //Create star background to display
+  //TODO: Create a better background
+  var starBackground = new collie.DisplayObject({
+    x: 0,
+    y: 0,
+    zIndex: 0,
+    scaleX: 2.5,
+    scaleY: 2.5,
+    backgroundImage: "stars"
+  }).addTo(worldLayer);
+
+  //Create world object to display
   var world = new collie.DisplayObject({
-    x: "center",
-    y: "center",
-    velocityRotate : 80,
+    x: (window.innerWidth / 2) - 250 , //center planet on x-axis
+    y: (window.innerHeight / 2) - 250, //center planet on y-axis
+    velocityRotate : 2,
+    zIndex: 1,
     backgroundImage : "planet"
   }).addTo(worldLayer);
 
   //Add worldLayer to Renderer
   collie.Renderer.addLayer(worldLayer);
+
 
   // Load Renderer into container id
   collie.Renderer.load(document.getElementById("world"));
