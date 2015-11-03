@@ -29,6 +29,8 @@ $(function (){
     y: (window.innerHeight / 2) - 250, //center planet on y-axis
     velocityRotate : 2,
     zIndex: 1,
+    scaleX:(window.innerWidth / 2000),
+    scaleY:(window.innerWidth / 2000),
     backgroundImage : "planet"
   }).addTo(worldLayer);
 
@@ -46,8 +48,8 @@ $(function (){
   $(window).resize(function(){
     world.set("x",(window.innerWidth / 2) - 250);
     world.set("y",(window.innerHeight / 2) - 250);
-
-
+    world.set("scaleX", (window.innerWidth / 2000));
+    world.set("scaleY", (window.innerWidth / 2000));
   });
 
 });
