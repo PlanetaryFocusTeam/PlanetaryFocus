@@ -1,9 +1,9 @@
 $(function (){
-
+  //collie.Renderer.setRenderingMode("canvas");
   // Load world.png
   collie.ImageManager.add({
     "planet" : "images/world.png",
-    "stars" : "images/stars-900x640.png" //temporary background
+    "stars" : "images/stars-64x64.png" //temporary background
   });
 
   //Create a world layer
@@ -15,20 +15,17 @@ $(function (){
   //Create star background to display
   //TODO: Create a better background
   var starBackground = new collie.DisplayObject({
-    x: 0,
-    y: 0,
-    zIndex: 0,
-    scaleX: 2.5,
-    scaleY: 2.5,
+    width: window.innerWidth,
+    height: window.innerHeight,
+    backgroundRepeat: "repeat",
     backgroundImage: "stars"
   }).addTo(worldLayer);
 
   //Create world object to display
   var world = new collie.DisplayObject({
-    x: (window.innerWidth / 2) - 250 , //center planet on x-axis
-    y: (window.innerHeight / 2) - 250, //center planet on y-axis
+    x: ((window.innerWidth / 2) - 250), //center planet on x-axis
+    y: ((window.innerHeight / 2) - 250), //center planet on y-axis
     velocityRotate : 2,
-    zIndex: 1,
     scaleX:(window.innerWidth / 2000),
     scaleY:(window.innerWidth / 2000),
     backgroundImage : "planet"
