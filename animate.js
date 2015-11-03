@@ -44,7 +44,7 @@ $(function (){
   //Start rendering
   collie.Renderer.start();
 
-  // Dynamically change planet location on window resize
+  // Dynamically change planet location and scale on window resize
   $(window).resize(function(){
     world.set("x",(window.innerWidth / 2) - 250);
     world.set("y",(window.innerHeight / 2) - 250);
