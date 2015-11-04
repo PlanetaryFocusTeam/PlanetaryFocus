@@ -13,10 +13,9 @@ $(function (){
 	});
 
 	//Create star background to display
-	//TODO: Create a better background
 	var starBackground = new collie.DisplayObject({
-		originX: "left",
-		originY: "top",
+		originX: 0,
+		originY: 0,
 		width: window.innerWidth * 2,
 		height: window.innerHeight * 2,
 		scaleX: window.innerWidth / (window.innerWidth + 512),
@@ -45,15 +44,22 @@ $(function (){
 	collie.Renderer.start();
 
 	// Dynamically change planet location and scale on window resize
-	$(window).resize(function(){
-		worldLayer.set("width", window.innerWidth);
-		worldLayer.set("height", window.innerHeight);
-		world.set("x", (window.innerWidth / 2) - 256);
-		world.set("y", (window.innerHeight / 2) - 256);
-		world.set("scaleX", window.innerWidth / (window.innerWidth + 512));
-		world.set("scaleY", window.innerWidth / (window.innerWidth + 512));
-		starBackground.set("scaleX", window.innerWidth / (window.innerWidth + 512));
-		starBackground.set("scaleY", window.innerWidth / (window.innerWidth + 512));
+	$(window).resize({originalX: window.innerWidth, originalY: window.innerHeight}, function(){
+		worldLayer.resize(window.innerWidth, window.innerHeight, true);
+		// world.set("x", (window.innerWidth / 2) - 256);
+		// world.set("y", (window.innerHeight / 2) - 256);
+	  // world.set("scaleX", window.innerWidth / (window.innerWidth + 512));
+    // world.set("scaleY", window.innerWidth / (window.innerWidth + 512));
+		//starBackground.set("width", window.innerWidth * 2);
+		//starBackground.set("height", window.innerHeight * 2);
+	//	starBackground.set("scaleX", window.innerWidth / (window.innerWidth + 512));
+	//	starBackground.set("scaleY", window.innerWidth / (window.innerWidth + 512));
+		// var deltaX = originalX - window.innerWidth;
+		// var deltaY = originalY - window.innerHeight;
+	  // starBackground.set("originX", starBackground.get("originX") - deltaX);
+		// alert("" + deltaX + "" + deltaY);
+	  // starBackground.set("originY", starBackground.get("originY") - deltaY);
+
 	});
 
 });
