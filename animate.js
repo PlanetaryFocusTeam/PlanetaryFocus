@@ -8,16 +8,16 @@ $(function (){
 
 	//Create a world layer
 	var worldLayer = new collie.Layer({
-		width: window.innerWidth*10,
-		height: window.innerHeight*10
+		width: window.screen.availWidth,
+		height: window.screen.availHeight
 	});
 
 	//Create star background to display
 	var starBackground = new collie.DisplayObject({
 		originX: 0,
 		originY: 0,
-		width: window.innerWidth * 30,
-		height: window.innerHeight * 30,
+		width: window.innerWidth * 2,
+		height: window.innerHeight * 2,
 		scaleX: window.innerWidth / (window.innerWidth + 512),
 		scaleY: window.innerWidth / (window.innerWidth + 512),
 		backgroundRepeat: "repeat",
@@ -51,8 +51,8 @@ $(function (){
 	  	world.set("y", (window.innerHeight / 2) - 256);
 	    world.set("scaleX", window.innerWidth / (window.innerWidth + 512));
      world.set("scaleY", window.innerWidth / (window.innerWidth + 512));
-		//starBackground.set("width", window.innerWidth * 2);
-	//	starBackground.set("height", window.innerHeight * 2);
+		starBackground.set("width", window.innerWidth * 2);
+		starBackground.set("height", window.innerHeight * 2);
 		starBackground.set("scaleX", window.innerWidth / (window.innerWidth + 512));
 		starBackground.set("scaleY", window.innerWidth / (window.innerWidth + 512));
 
