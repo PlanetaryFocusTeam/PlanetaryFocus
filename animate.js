@@ -1,5 +1,9 @@
 $(function (){
-	//collie.Renderer.setRenderingMode("canvas");
+
+	// remove scroll options
+	document.documentElement.style.overflow = 'hidden';  // firefox, chrome
+  document.body.scroll = "no"; // ie only
+
 	// Load world.png
 	collie.ImageManager.add({
 		"planet" : "images/world.png",
@@ -16,8 +20,8 @@ $(function (){
 	var starBackground = new collie.DisplayObject({
 		originX: 0,
 		originY: 0,
-		width: window.innerWidth * 2,
-		height: window.innerHeight * 2,
+		width: window.screen.availWidth * 3,
+		height: window.screen.availHeight * 3,
 		scaleX: window.innerWidth / (window.innerWidth + 512),
 		scaleY: window.innerWidth / (window.innerWidth + 512),
 		backgroundRepeat: "repeat",
@@ -45,16 +49,11 @@ $(function (){
 
 	// Dynamically change planet location and scale on window resize
 	$(window).resize(function(){
-
-	//worldLayer.resize(window.innerWidth, window.innerHeight, true);
-		 world.set("x", (window.innerWidth / 2) - 256);
-	  	world.set("y", (window.innerHeight / 2) - 256);
-	    world.set("scaleX", window.innerWidth / (window.innerWidth + 512));
-     world.set("scaleY", window.innerWidth / (window.innerWidth + 512));
-		starBackground.set("width", window.innerWidth * 2);
-		starBackground.set("height", window.innerHeight * 2);
+		world.set("x", (window.innerWidth / 2) - 256);
+	  world.set("y", (window.innerHeight / 2) - 256);
+	  world.set("scaleX", window.innerWidth / (window.innerWidth + 512));
+    world.set("scaleY", window.innerWidth / (window.innerWidth + 512));
 		starBackground.set("scaleX", window.innerWidth / (window.innerWidth + 512));
 		starBackground.set("scaleY", window.innerWidth / (window.innerWidth + 512));
-
 	});
 });
