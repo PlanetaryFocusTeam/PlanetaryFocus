@@ -50,9 +50,9 @@ $(function (){
 	// Dynamically change planet location and scale on window resize
 	$(window).resize(function(){
 		world.set("x", (window.innerWidth / 2) - 256);
-	  world.set("y", (window.innerHeight / 2) - 256);
-	  world.set("scaleX", window.innerWidth / (window.innerWidth + 512));
-    world.set("scaleY", window.innerWidth / (window.innerWidth + 512));
+		world.set("y", (window.innerHeight / 2) - 256);
+		world.set("scaleX", window.innerWidth / (window.innerWidth + 512));
+  	world.set("scaleY", window.innerWidth / (window.innerWidth + 512));
 		starBackground.set("scaleX", window.innerWidth / (window.innerWidth + 512));
 		starBackground.set("scaleY", window.innerWidth / (window.innerWidth + 512));
 	});
