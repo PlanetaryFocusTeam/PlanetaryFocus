@@ -1,6 +1,7 @@
 $(function (){
   // Load world.png
   var planet = document.getElementById("planet");
+  var background = document.getElementById("background");
 
   // initialize planet animation
   TweenMax.to(planet, 0, {
@@ -13,7 +14,7 @@ $(function (){
     scaleY: window.innerWidth / (window.innerWidth + 512),
 
     // bring planet to the front of window
-    Zindex: 3
+    zIndex: 3
     });
 
   // start rotating planet
@@ -23,6 +24,17 @@ $(function (){
     ease:Linear.easeNone
   });
 
+  // initialize background
+  TweenMax.to(background, 0, {
+    //scale background relative to screen
+    transformOrigin: "left top",
+    scaleX: window.innerWidth / (window.innerWidth + 512),
+    scaleY: window.innerWidth / (window.innerWidth + 512),
+
+    //make sure background is behind all other images
+    zIndex: 0
+
+  });
 
 
 });
