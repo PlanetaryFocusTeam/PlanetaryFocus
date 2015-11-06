@@ -3,6 +3,9 @@ $(function (){
   var planet = document.getElementById("planet");
   var background = document.getElementById("background");
 
+  // scale background image relative to window size
+  $(document.body).css('background-size' ,(512 * window.innerWidth / (window.innerWidth + 512)) + 'px');
+
   // initialize planet animation
   TweenMax.to(planet, 0, {
     //set position to center of screen
@@ -23,18 +26,5 @@ $(function (){
     repeat: -1,
     ease:Linear.easeNone
   });
-
-  // initialize background
-  TweenMax.to(background, 0, {
-    //scale background relative to screen
-    transformOrigin: "left top",
-    scaleX: window.innerWidth / (window.innerWidth + 512),
-    scaleY: window.innerWidth / (window.innerWidth + 512),
-
-    //make sure background is behind all other images
-    zIndex: 0
-
-  });
-
 
 });
