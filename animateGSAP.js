@@ -10,7 +10,10 @@ $(function (){
 
     // scale planet relative to screen
     scaleX: window.innerWidth / (window.innerWidth + 512),
-    scaleY: window.innerWidth / (window.innerWidth + 512)
+    scaleY: window.innerWidth / (window.innerWidth + 512),
+
+    // bring planet to the front of window
+    Zindex: 3
     });
 
   // start rotating planet
@@ -20,6 +23,6 @@ $(function (){
     ease:Linear.easeNone
   });
 
-  
+
 
 });
